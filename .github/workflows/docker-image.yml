@@ -1,0 +1,29 @@
+name: CI - Maven and Image build
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker login
+      run: docker login ghcr.io -u ${{ github.repository_owner }} -p ${{ github.token }}
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3.10.0
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B verify --file pom.xml
+    - name: Build the Docker image
+      run: docker build . -t ghcr.io/${{ github.repository_owner }}/cubix/cloudnative4/api:latest
+    - name: Push the Docker image
+      run: docker push ghcr.io/${{ github.repository_owner }}/cubix/cloudnative4/api:latest

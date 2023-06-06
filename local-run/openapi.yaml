@@ -1,0 +1,117 @@
+openapi: 3.0.3
+info:
+  title: Cloud Native Training - API application
+  description: |-
+    Cubix Cloud Native Application Development Training Block4 - API application.
+  contact:
+    email: csendes.david@alerant.hu
+  version: 1.0.0-SNAPSHOT
+servers:
+  - url: http://localhost:8082
+    description: Local development
+  - url: http://application.cubix.com:8080
+    description: Kubernetes development
+tags:
+  - name: local
+    description: Local operations, no DB application usage
+  - name: db
+    description: Operations with DB application usage
+paths:
+  /training/test:
+    get:
+      tags:
+        - local
+      summary: Does local calculations only
+      description: Returns the result of calculation
+      operationId: localGet
+      parameters:
+        - name: leftNumber
+          in: query
+          description: The left side of the calculation
+          required: true
+          schema:
+            type: integer
+        - name: rightNumber
+          in: query
+          description: The right side of the calculation
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: the sum of the two numbers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingResponse'
+  /training/local:
+    post:
+      tags:
+        - local
+      summary: Does local calculations and returns message
+      description: Returns the result of calculation and the requested message
+      operationId: localPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingRequest'
+      responses:
+        '200':
+          description: The sum of the two numbers and the message in the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingResponse'
+  /training/store:
+    post:
+      tags:
+        - db
+      summary: Does local calculations and messages from DB
+      description: Returns the result of calculation and the last messages
+      operationId: dbPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingRequest'
+      responses:
+        '200':
+          description: The sum of the two numbers and the last arrived messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingResponse'
+components:
+  schemas:
+    TrainingRequest:
+      type: object
+      properties:
+        leftNumber:
+          type: integer
+          format: int32
+          example: 1
+          default: 0
+        rightNumber:
+          type: integer
+          format: int32
+          example: 2
+          default: 0
+        message:
+          type: string
+          example: Text
+          default: ""
+    TrainingResponse:
+      type: object
+      properties:
+        result:
+          type: integer
+          format: int32
+          example: 3
+        recentMessages:
+          type: array
+          items:
+            type: string
+      required:
+        - result
+        - recentMessages

@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "5a60907d-5c8e-4d54-a7bd-17aa74034a4b",
+		"name": "Cloud-Native Training API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Local Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/training/test?leftNumber=1&rightNumber=2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"training",
+						"test"
+					],
+					"query": [
+						{
+							"key": "leftNumber",
+							"value": "1"
+						},
+						{
+							"key": "rightNumber",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Local Message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"Hello Cloud-Natve!\",\r\n    \"leftNumber\": 1,\r\n    \"rightNumber\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/training/local",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"training",
+						"local"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DB Store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"Hello!\",\r\n    \"leftNumber\": 1,\r\n    \"rightNumber\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/training/store",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"training",
+						"store"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8082",
+			"type": "default"
+		}
+	]
+}

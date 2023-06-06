@@ -1,2 +1,2 @@
-# cubix-cloudnative-block4-api
-Cubix Cloud-Native Application Development Training: cloud-native requirements (API app)
+# Cubix Cloud-Native Application Development Training: cloud-native requirements (API app)
+Fork this repository for the practice session.
