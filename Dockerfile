@@ -5,4 +5,4 @@ USER 1001
 WORKDIR /opt/app
 COPY --chown=1001 target/*.jar app.jar
 ENTRYPOINT [ "sh", "-c" ]
-CMD ["java $JAVA_OPTS -jar app.jar"]
+CMD ["exec java $JAVA_OPTS -jar app.jar"]
