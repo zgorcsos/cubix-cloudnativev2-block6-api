@@ -1,0 +1,19 @@
+meta {
+  name: Local Message
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{host}}/training/local
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "message": "Hello Cloud-Natve!",
+      "leftNumber": 1,
+      "rightNumber": 2
+  }
+}

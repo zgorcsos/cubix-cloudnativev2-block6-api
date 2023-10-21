@@ -1,0 +1,19 @@
+meta {
+  name: DB Store
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{host}}/training/store
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "message": "Hello!",
+      "leftNumber": 1,
+      "rightNumber": 2
+  }
+}

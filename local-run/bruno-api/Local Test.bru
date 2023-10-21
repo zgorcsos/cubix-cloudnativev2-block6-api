@@ -1,0 +1,16 @@
+meta {
+  name: Local Test
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{host}}/training/test?leftNumber=1&rightNumber=2
+  body: none
+  auth: none
+}
+
+query {
+  leftNumber: 1
+  rightNumber: 2
+}
