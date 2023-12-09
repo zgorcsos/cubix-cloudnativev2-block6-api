@@ -24,6 +24,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
     - name: Build the Docker image
-      run: docker build . -t ghcr.io/${{ github.repository_owner }}/cubix/cloudnative4/api:latest
+      run: docker build . -t ghcr.io/${{ github.repository_owner }}/cubix/cloudnative5/api:latest
     - name: Push the Docker image
-      run: docker push ghcr.io/${{ github.repository_owner }}/cubix/cloudnative4/api:latest
+      run: docker push ghcr.io/${{ github.repository_owner }}/cubix/cloudnative5/api:latest
