@@ -5,17 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.6</version>
+        <version>3.2.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>hu.cubix.cloud</groupId>
     <artifactId>cloudnative-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>Cloud Native Training - API application</name>
-    <description>Cubix Cloud Native Application Development Training Block4 - API application</description>
+    <description>Cubix Cloud Native Application Development Training Block5 - API application</description>
     <properties>
-        <java.version>17</java.version>
-        <spring-cloud.version>2022.0.4</spring-cloud.version>
+        <java.version>21</java.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
     </properties>
     <dependencies>
         <dependency>
@@ -33,9 +33,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.tomakehurst</groupId>
-            <artifactId>wiremock-jre8-standalone</artifactId>
-            <version>2.35.0</version>
+            <groupId>org.wiremock</groupId>
+            <artifactId>wiremock-standalone</artifactId>
+            <version>3.4.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -59,7 +59,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.2.5</version>
                 <executions>
                     <execution>
                         <goals>
