@@ -31,6 +31,6 @@ jobs:
       env:
         OWNER: '${{ github.repository_owner }}'
     - name: Build the Docker image
-      run: docker build . -t ghcr.io/${{env.OWNER_LC }}/cubix/cloudnative5/api:latest
+      run: docker build . -t ghcr.io/${{env.OWNER_LC }}/cubix/cloudnative6/api:latest
     - name: Push the Docker image
-      run: docker push ghcr.io/${{ env.OWNER_LC }}/cubix/cloudnative5/api:latest
+      run: docker push ghcr.io/${{ env.OWNER_LC }}/cubix/cloudnative6/api:latest
